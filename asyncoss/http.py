@@ -62,11 +62,8 @@ class Request(object):
         else:
             self.headers = headers
 
-        if 'Content-Type' not in self.headers:
-            self.headers['Content-Type'] = 'application/octet-stream'
-
         if 'Accept-Encoding' not in self.headers:
-            self.headers['Accept-Encoding'] = 'identity'
+            self.headers['Accept-Encoding'] = None
 
         if 'User-Agent' not in self.headers:
             if app_name:
