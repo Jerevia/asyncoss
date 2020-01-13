@@ -26,7 +26,6 @@ class Session(object):
             loop=self._loop)
 
     async def do_request(self, req, timeout=300):
-
         resp = await self._aio_session.request(req.method, url=req.url,
                                                data=req.data,
                                                params=req.params,
@@ -63,7 +62,7 @@ class Request(object):
             self.headers = headers
 
         if 'Accept-Encoding' not in self.headers:
-            self.headers['Accept-Encoding'] = None
+            self.headers['Accept-Encoding'] = ''
 
         if 'User-Agent' not in self.headers:
             if app_name:
