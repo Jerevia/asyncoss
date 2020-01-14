@@ -23,6 +23,7 @@ class Session(object):
 
         self._aio_session = aiohttp.ClientSession(
             connector=connector,
+            skip_auto_headers=['Content-Type', 'User-Agent'],
             loop=self._loop)
 
     async def do_request(self, req, timeout=300):
